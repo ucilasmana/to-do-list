@@ -4,6 +4,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Borel&family=REM:wght@200;300;500;600;800&display=swap');
 
+input[type=checkbox]:checked ~ .checkmark {
+  @apply bg-red-500
+}
+input[type=checkbox]:checked ~ .checkmark:after {
+  @apply block
+}
+.checkmark:after {
+  @apply content-[''] absolute hidden left-1 top-0.5 w-[7px] h-2.5 border-r-[3px] border-b-[3px] border-white rotate-45
+}
+
 html{
   scroll-behavior: smooth;
   --font-rem:'REM', sans-serif;
@@ -16,80 +26,11 @@ html{
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--default-color);
-  
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/*
-button {
-  background-color: var(--red-color);
-  color:white;
-  font-family: var(--font-rem);  
-  font-size: 1em;
-  height: 40px;
-  width: 120px;
-  border: none;
-  border-radius: 30px;
-  border:1px solid var(--red-color) ;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-}
-button:hover {
-  background-color: transparent;
-  color:var(--red-color);
-  border:2px solid var(--red-color) ;
-}
 
-input[type=text] {
-  border: none;
-  padding-bottom: 10px;
-  background-color: transparent;
-  font-family: var(--font-rem); 
-  font-weight: 300;
-  font-size: 1.2em;
-  color: rgb(73, 73, 73);
-  transition: border-bottom 0.4s ease-in-out;
-  border-bottom: 2px solid var(--red-color);
-}
-input[type=date] {
-  outline: none;
-  border: none;
-  padding-bottom: 10px;
-  background-color: transparent;
-  font-family: var(--font-rem); 
-  font-weight: 300;
-  font-size: 1.2em;
-  color: rgb(73, 73, 73);
-  transition: border-bottom 0.4s ease-in-out;
-  border-bottom: 2px solid var(--red-color);
-}
-input[type=date]::placeholder {
-  color: transparent;
-}
-
-input[type=text]:focus {
-  outline: none;
-  border-bottom: 2px solid gray;
-}
-::-webkit-input-placeholder { 
-  color: red;
-  font-size: 1.5em;
-}
-
-:-ms-input-placeholder { 
-  color: red;
-  font-size: 1.5em;
-}
-
-::placeholder {
-  color: rgb(134, 134, 134);
-
-
-}
-*/
 /* width */
 ::-webkit-scrollbar {
   width: 3px;

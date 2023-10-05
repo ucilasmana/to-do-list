@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App min-h-screen text-red-600 bg-orange-200/75">
+    <div className="App min-h-screen lg:overflow-hidden text-red-600 bg-orange-200/75">
      <Home/>
     </div>
   );
