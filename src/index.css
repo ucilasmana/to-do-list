@@ -15,40 +15,23 @@ input[type=checkbox]:checked ~ .checkmark:after {
 }
 
 html{
-  scroll-behavior: smooth;
-  --font-rem:'REM', sans-serif;
-  --font-borel: 'Borel', cursive;
-  --default-color:#f8eee0;
-  --red-color:#db3828;
-  --gray-color:gray;
+  @apply scroll-smooth h-full
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply box-border m-0 p-0 h-full antialiased
 }
 
-/* width */
 ::-webkit-scrollbar {
-  width: 3px;
- 
+  @apply w-[3px] 
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  @apply bg-gray-400  
 }
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: var(--red-color); 
-  border-radius: 3px;
+ ::-webkit-scrollbar-thumb {
+  @apply bg-red-600 rounded
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  @apply bg-gray-600 
 }
