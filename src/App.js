@@ -5,7 +5,7 @@ import AddTodo from './components/Actions/AddTodo'
 import Modal from './components/Actions/Modal'
 import { modalReducer, tasksReducer } from "./reducers";
 
-const TodoContext = createContext()
+export const TodoContext = createContext()
 
 const initialTask = []
 
