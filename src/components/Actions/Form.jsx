@@ -6,6 +6,14 @@ import "./calendar.css"
 import { TodoContext } from '../../App';
 import UpcomingLists from '../Lists/UpcomingLists';
 
+ const checkValue = (value) => {
+    if (!value.trim()) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
 const Form = () => {
 
   const {tasks, modal, taskDispatch, modalDispatch} = useContext(TodoContext);
@@ -25,21 +33,11 @@ const Form = () => {
          alert("Sorry, we can’t find the plan you are asking for")
         }
   }
-  else {
-    setActivity('')
+  else if(modal.modalType==='Delete'){
     setStartDate(new Date());
   }
  }, [modal.show])
-  
-  const checkValue = (value) => {
-    if (!value.trim()) {
-      return false;
-    } else {
-      return true;
-    }
-  };
-
-  
+    
   function handleAddTask(activity, date){
     if (checkValue(activity)) {
         taskDispatch({
