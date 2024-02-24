@@ -31,7 +31,7 @@ function App() {
 
 
   return (
-    <div className="App relative min-h-screen lg:overflow-hidden text-red-700 bg-orange-50">
+    <div className="App relative min-h-screen lg:overflow-hidden text-red-600 bg-amber-100">
        <TodoContext.Provider value={{tasks, modal, taskDispatch, modalDispatch}} >
         <AddTodo/>
          <Todo/>

@@ -4,7 +4,6 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import "./calendar.css"
 import { TodoContext } from '../../App';
-import UpcomingLists from '../Lists/UpcomingLists';
 
  const checkValue = (value) => {
     if (!value.trim()) {
@@ -19,7 +18,7 @@ const Form = () => {
   const {tasks, modal, taskDispatch, modalDispatch} = useContext(TodoContext);
 
   const [activity, setActivity] =useState('')
-  const [startDate, setStartDate] = useState(null);
+  const [startDate, setStartDate] = useState(new Date());
  
  useEffect(()=>{
   if(modal.modalType==='Edit'){
@@ -27,17 +26,21 @@ const Form = () => {
     if(editTask)
         {
           setStartDate(new Date(editTask.date))
+          console.log(startDate.getMonth())
           setActivity(editTask.activity)
         }
         else{
          alert("Sorry, we can’t find the plan you are asking for")
         }
   }
-  else if(modal.modalType==='Delete'){
+  else{
+    setActivity('')
     setStartDate(new Date());
   }
  }, [modal.show])
     
+ console.log("activity", activity)
+ 
   function handleAddTask(activity, date){
     if (checkValue(activity)) {
         taskDispatch({
@@ -47,6 +50,7 @@ const Form = () => {
             date:date,
         })
         setActivity('')
+        setStartDate(new Date());
     }
     else{
        alert("Please write your plan first")
@@ -64,6 +68,7 @@ const Form = () => {
       type:'closeModal',
     })
     setActivity('')
+    setStartDate(new Date());
   }
   else{
     alert("Please write your plan first")

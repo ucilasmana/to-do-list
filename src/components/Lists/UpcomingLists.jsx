@@ -1,10 +1,12 @@
 import {useContext} from 'react'
 import { TodoContext } from '../../App';
 
+const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 const UpcomingLists = ({NoPlan, Edit, Delete, editModal, deleteModal}) => {
     const {tasks} = useContext(TodoContext);
     const tasksUpcoming = tasks.filter(task=>new Date(task.date)>new Date())
+    
     console.log("UPCOMING")
   return (
     <> 
@@ -14,7 +16,7 @@ const UpcomingLists = ({NoPlan, Edit, Delete, editModal, deleteModal}) => {
        <div className="flex flex-col divide-y divide-red-200">
        {tasksUpcoming.map(task => (
          <div key={task.id} className='relative flex group/actions items-center py-2'>
-           <span className='text-xs font-semibold text-gray-400'>{new Date(task.date).getDate()}/{new Date(task.date).getMonth()}/<br/>{new Date(task.date).getFullYear()}</span>
+           <span className='text-xs font-semibold text-gray-400'>{new Date(task.date).getDate()} {month[new Date(task.date).getMonth()]}<br/>{new Date(task.date).getFullYear()}</span>
            <label className='relative pl-4 py-2 w-5/6'>{task.activity}
            </label>
            <div className='flex flex-col absolute right-0 my-2 p-0.5 invisible gap-0.5 bg-orange-100 rounded-md group-hover/actions:visible'>
